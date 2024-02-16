@@ -1,0 +1,3 @@
+[submodule "LabGUI"]
+	path = LabGUI
+	url = https://github.com/CU-EBIT/LabGUI.git
