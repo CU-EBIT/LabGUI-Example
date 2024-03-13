@@ -13,7 +13,7 @@ def make_modules(main):
     Args:
         main (MainModule): module having sub modules added
     """
-    from LabGUI.lab_gui.widgets.test_device import TestDevice
+    from LabGUI.lab_gui.examples.widgets.test_device import TestDevice
 
     module = TestDevice(main, id=27)
     main.plot_widget.addDock(module.dock)
@@ -29,7 +29,7 @@ def make_modules(main):
 
     from LabGUI.lab_gui.widgets.base_control_widgets import SaveModule
 
-    module = SaveModule(main)
+    module = SaveModule()
     # By not specifying location, it goes below the rest.
     main.plot_widget.addDock(module.dock)
     main._modules.append(module)
