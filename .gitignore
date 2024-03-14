@@ -40,6 +40,7 @@ pip-delete-this-directory.txt
 htmlcov/
 settings/
 _run_.py
+*_data_cache*
 _test_*
 .tox/
 .nox/

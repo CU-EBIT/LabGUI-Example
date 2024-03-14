@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 
-### If running a server manually, uncomment below and replace this ADDR accordingly
-# import utils.data_client as data_client
-# data_client.ADDR = ("host", 20002) 
+### If running a server manually, replace the key below with the one your server uses
+import LabGUI.lab_gui.utils.data_client as data_client
+data_client.DATA_SERVER_KEY = "LabGUI_Example"
+### If you have multiple servers running, change the lookup port as follows:
+import LabGUI.lab_gui.utils.data_server as server
+server.ServerProvider.PORT = 12345
+data_client.ServerFinder.PORT = server.ServerProvider.PORT
 
 def make_modules(main):
     """Here we add a few of our own modules.
@@ -15,13 +19,13 @@ def make_modules(main):
     """
     from LabGUI.lab_gui.examples.widgets.test_device import TestDevice
 
-    module = TestDevice(main, id=27)
+    module = TestDevice(main, id=27, data_key="Test_Value_A")
     main.plot_widget.addDock(module.dock)
     main._modules.append(module)
     _module = module
 
     from example_widgets.example_widget import TestDevice10
-    module = TestDevice10(main, id=25)
+    module = TestDevice10(main, id=25, data_key="Test_Value_B")
     # This test device we manually place to the right of the previous
     main.plot_widget.addDock(module.dock, 'right', _module.dock)
     main._modules.append(module)
